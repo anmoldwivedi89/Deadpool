@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>@CodeCraftArhum | Deadpool Website </title>
+</head>
+
+<body>
+
+    <!-- <=============================== Navbar ======================================= > -->
+
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="./images/logo.png" alt=""></a>
+        </div>
+        <ul>
+            <li><a href="top-casts.html">TOP CASTS</a></li>
+            <li><a href="production.html">PRODUCTION</a></li>
+            <li><a href="box-office.html">BOX OFFICE</a></li>
+            <li><a href="imax-g.html">IMAX G</a></li>
+        </ul>
+        <div class="nav-icons">
+            <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
+            <i class="fa-regular fa-user" id="user-icon"></i>
+            <div class="hamgurber-menu" id="menu-btn">
+                <span class="1"></span>
+                <span class="2"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="overlay">
+        <div class="close-overlay" id="close-search">&times;</div>
+        <div class="search-container">
+            <input type="text" placeholder="Search Characters, News, Tours..." id="search-input">
+            <div class="search-line"></div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Menu Overlay -->
+    <div id="menu-overlay" class="overlay">
+        <div class="close-overlay" id="close-menu">&times;</div>
+        <ul class="overlay-menu-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="top-casts.html">TOP CASTS</a></li>
+            <li><a href="production.html">PRODUCTION</a></li>
+            <li><a href="box-office.html">BOX OFFICE</a></li>
+            <li><a href="imax-g.html">IMAX G</a></li>
+        </ul>
+    </div>
+
+    <!-- User Profile Placeholder -->
+    <div id="user-modal" class="modal">
+        <div class="modal-content">
+            <div class="close-modal" id="close-user">&times;</div>
+            <h2>Member Access</h2>
+            <p>Sign in to unlock exclusive Deadpool & Wolverine content.</p>
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <button class="btn">Login</button>
+        </div>
+    </div>
+
+    <!-- <=============================== Herobox ======================================= > -->
+
+    <div class="herobox">
+        <div class="character">
+            <img src="./images/1.png" alt="">
+        </div>
+        <div class="red-circle"></div>
+        <h1 class="herobox-mainheading">Deadpool</h1>
+        <div class="herobox-content-container">
+            <div class="content-1">
+                <h1 class="heros-names">RYAN REYNOLDS</h1>
+                <h1 class="heros-names">HUGH JACKMAN</h1>
+            </div>
+            <div class="content-2">
+                <h1 class="heros-names">EMMA CORRIN</h1>
+                <h1 class="heros-names">DAFNE KEEN</h1>
+            </div>
+        </div>
+        <div class="grid">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="top-bar">
+            <div class="topbar-buttons">
+                <span>Action</span>
+                <span>Comedy</span>
+                <span>Sci-Fi</span>
+            </div>
+            <p>OUT NOW [ IN THEATERS ]</p>
+        </div>
+        <div class="hero-slider">
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                </div>
+                <div class="slider">
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                </div>
+                <div class="slider">
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                </div>
+                <div class="slider">
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                </div>
+                <div class="slider">
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                </div>
+                <div class="slider">
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                </div>
+                <div class="slider">
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                </div>
+                <div class="slider">
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                </div>
+                <div class="slider">
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                </div>
+                <div class="slider">
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                </div>
+                <div class="slider">
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-footer">
+            <div class="left-hero-content">
+                <div class="left-heroheading">
+                    <div class="hero-left-footer-logo"></div>
+                    <h1>DEADPOOL III STORY</h1>
+                </div>
+                <p>PART A. . . Wolverine joins the "merc with a mouth" in the third installment of the Deadpool film
+                    franchise...</p>
+            </div>
+            <div class="right-hero-content">
+                <a href="#">Book Now <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="cd"></div>
+                <p>01</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- <=============================== Section 1 ======================================= > -->
+
+    <div class="section-1">
+
+        <div class="hero-slider">
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                </div>
+                <div class="slider">
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                </div>
+                <div class="slider">
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                </div>
+                <div class="slider">
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                </div>
+                <div class="slider">
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                </div>
+                <div class="slider">
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                </div>
+                <div class="slider">
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                </div>
+                <div class="slider">
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                </div>
+                <div class="slider">
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                </div>
+                <div class="slider">
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                </div>
+                <div class="slider">
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                    <div class="image-block"><img src="./images/3.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="topback"></div>
+        <div class="topbackground"></div>
+        <div class="slider-indicator-container">
+            <div class="slider-left-indicator"><i class="fa-solid fa-arrow-left"></i></div>
+            <div class="slider-right-indicator"><i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+        <div class="card-container">
+            <div class="card"><img src="./images/4.jpg" alt=""></div>
+            <div class="card"><img src="./images/3.jpg" alt=""></div>
+            <div class="card"><img src="./images/2.jpeg" alt=""></div>
+            <div class="card"><img src="./images/1.jpeg" alt=""></div>
+        </div>
+        <div class="marvel-studio">
+            <div class="marvel-header">
+                <div class="marvel-icon"></div>
+                <h1>production</h1>
+            </div>
+            <div class="marvel-logo"><img src="./images/logo 2.png" alt=""></div>
+        </div>
+        <div class="date-status">
+            <div class="trailer">
+                <h2>trailer</h2>
+                <h1>1:47''</h1>
+            </div>
+            <div class="IMAX">
+                <h2>IMAX</h2>
+                <h1>6</h1>
+            </div>
+            <div class="date">
+                <h2>may</h2>
+                <h1>3</h1>
+            </div>
+        </div>
+        <div class="section1-right-top-description">
+            <div class="left-bar"></div>
+            <p>"HUGH JACKMAN SAID HE REALLY WAS DONE PLAYING THE CHARACTER OF LOGAN/WOLVERINE AFTER 2017'S 'LOGAN'."</p>
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
+        <div class="rating">
+            <p>02</p>
+            <div class="stars"><img src="./images/rating.png" alt=""></div>
+        </div>
+        <div class="socials">
+            <div class="social-icon"><i class="fa-brands fa-facebook-f"></i></div>
+            <div class="social-icon"><i class="fa-brands fa-discord"></i></div>
+            <div class="social-icon"><i class="fa-brands fa-x-twitter"></i></div>
+        </div>
+
+        <div class="left-section1-content">
+            <div class="left-section1heading">
+                <div class="section1-left-footer-logo"></div>
+                <h1>RELEASE DATE</h1>
+            </div>
+            <p><span>PART B.</span> Deadpool & Wolverine is now the highest-grossing R-rated film of all time,
+                officially shattering records and bringing the multiverse together in a way only Wade and Logan can.</p>
+        </div>
+        <h1 class="section-1footer-heading section-1FooterHeading">DIRECTED</h1>
+        <h2 class="section-1footer-heading2 section-1FooterHeading">BY</h2>
+        <h1 class="section-1footer-heading3 section-1FooterHeading">SHAWN LEVY</h1>
+        <p class="section-1footer-date">GALLERY 07/32</p>
+    </div>
+
+
+    <!-- <=============================== Section 2 ======================================= > -->
+
+    <div class="section-2">
+        <div class="section2-counting">
+            <div class="left-counting">
+                <p>01</p>
+                <p>02</p>
+            </div>
+            <div class="right-counting">
+                <p>03</p>
+                <p>04</p>
+            </div>
+        </div>
+        <h1 class="section-2-mainHeading">DEADPOOL III: RELEASE DATE, CAST, AND EVERYTHING ABOUT THE FILM!</h1>
+        <div class="section-2-users">
+            <div class="left-users">
+                <div class="section2-user"></div>
+                <div class="section2-user"></div>
+                <div class="section2-user"></div>
+                <div class="section2-user"></div>
+            </div>
+            <div class="mid-arrows"><img src="./images/arrows.png" alt=""></div>
+            <div class="right-cd">
+                <p>03</p>
+                <div class="section-2cd"></div>
+            </div>
+        </div>
+
+        <div class="teaser-text">
+
+            <div class="left-section2-content">
+                <div class="left-section2heading">
+                    <div class="section2-left-footer-logo"></div>
+                    <h1>X-MEN</h1>
+                </div>
+                <p><span>Part C:</span> Deadpool, AKA Wade Wilson, AKA the Merc with a Mouth, first made his debut in
+                    the much-maligned X-Men Origins: Wolverine.</p>
+            </div>
+
+
+            <div class="left-section2-content">
+                <div class="left-section2heading">
+                    <div class="section2-left-footer-logo"></div>
+                    <h1>PREMIERING:</h1>
+                </div>
+                <p><span>PART D:</span> The film was initially announced for September 6, 2024, but it later changed,
+                    being pushed back to November 8, 2024...</p>
+            </div>
+        </div>
+
+        <div class="card-img">
+            <img src="./images/Card.png" alt="">
+        </div>
+        <div class="deadpool-character">
+            <img src="./images/2.png" alt="">
+        </div>
+        <div class="section2-footer-images">
+            <div class="left-footer-image">
+                <img src="./images/5.png" alt="">
+            </div>
+            <div class="right-footer-image">
+                <img src="./images/4.png" alt="">
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- <=============================== Footer ======================================= > -->
+
+
+    <div class="footer">
+        <div class="footer-content">
+            <p>IN THEATERS</p>
+            <h1>DEADPOOL III</h1>
+            <div class="footer-date">
+                <h2>MAY 2</h2>
+                <h2>2025</h2>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+        integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"
+        integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="scrip.js"></script>
+</body>
+
+</html>

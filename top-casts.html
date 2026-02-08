@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Top Casts - Deadpool & Wolverine</title>
+    <style>
+        .content-section {
+            padding: 100px 50px;
+            color: white;
+            font-family: var(--secondaryFont);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            width: 100%;
+            max-width: 1300px;
+            margin-top: 50px;
+        }
+
+        .cast-card {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+            /* Initial state for GSAP */
+            visibility: hidden;
+        }
+
+        .cast-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(173, 18, 34, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        .cast-card:hover {
+            border-color: #ad1222;
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(173, 18, 34, 0.2);
+        }
+
+        .cast-card:hover::before {
+            opacity: 1;
+        }
+
+        .cast-card h3 {
+            font-family: var(--primaryFont);
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cast-card p.char-name {
+            color: #ad1222;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cast-card p.desc {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 15px;
+            line-height: 1.4;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subpage-hero {
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(to bottom, transparent, black);
+        }
+
+        .subpage-hero h1 {
+            font-family: var(--primaryFont);
+            font-size: 10vw;
+            color: white;
+            text-transform: uppercase;
+            z-index: 2;
+            text-shadow: 0 0 20px rgba(173, 18, 34, 0.5);
+        }
+
+        .subpage-hero .red-bg {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: #ad1222;
+            filter: blur(150px);
+            border-radius: 50%;
+            z-index: 1;
+            animation: pulse 4s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            to {
+                transform: scale(1.2);
+                opacity: 0.8;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav style="top: 0px; position: fixed;">
+        <div class="logo">
+            <a href="index.html"><img src="./images/logo.png" alt=""></a>
+        </div>
+        <ul>
+            <li><a href="top-casts.html" style="color: #ad1222;">TOP CASTS</a></li>
+            <li><a href="production.html">PRODUCTION</a></li>
+            <li><a href="box-office.html">BOX OFFICE</a></li>
+            <li><a href="imax-g.html">IMAX G</a></li>
+        </ul>
+        <div class="nav-icons">
+            <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
+            <i class="fa-regular fa-user" id="user-icon"></i>
+            <div class="hamgurber-menu" id="menu-btn">
+                <span class="1"></span>
+                <span class="2"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="overlay">
+        <div class="close-overlay" id="close-search">&times;</div>
+        <div class="search-container">
+            <input type="text" placeholder="Search Characters, News, Tours..." id="search-input">
+            <div class="search-line"></div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Menu Overlay -->
+    <div id="menu-overlay" class="overlay">
+        <div class="close-overlay" id="close-menu">&times;</div>
+        <ul class="overlay-menu-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="top-casts.html">TOP CASTS</a></li>
+            <li><a href="production.html">PRODUCTION</a></li>
+            <li><a href="box-office.html">BOX OFFICE</a></li>
+            <li><a href="imax-g.html">IMAX G</a></li>
+        </ul>
+    </div>
+
+    <!-- User Profile Placeholder -->
+    <div id="user-modal" class="modal">
+        <div class="modal-content">
+            <div class="close-modal" id="close-user">&times;</div>
+            <h2>Member Access</h2>
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <button class="btn">Login</button>
+        </div>
+    </div>
+
+    <div class="subpage-hero">
+        <div class="red-bg"></div>
+        <h1>Meet the Cast</h1>
+    </div>
+
+    <div class="content-section">
+        <div class="cast-grid">
+            <div class="cast-card">
+                <h3>Ryan Reynolds</h3>
+                <p class="char-name">Deadpool / Wade Wilson</p>
+                <p class="desc">The Merc with a Mouth returns, now officially part of the MCU multiverse.</p>
+            </div>
+            <div class="cast-card">
+                <h3>Hugh Jackman</h3>
+                <p class="char-name">Wolverine / Logan</p>
+                <p class="desc">The legendary X-Man suit up in the iconic yellow and blue for the first time.</p>
+            </div>
+            <div class="cast-card">
+                <h3>Emma Corrin</h3>
+                <p class="char-name">Cassandra Nova</p>
+                <p class="desc">Charles Xavier's powerful and dangerous twin sister ruling the Void.</p>
+            </div>
+            <div class="cast-card">
+                <h3>Matthew Macfadyen</h3>
+                <p class="char-name">Mr. Paradox</p>
+                <p class="desc">A TVA agent with a plan that puts Wade's universe in jeopardy.</p>
+            </div>
+            <div class="cast-card">
+                <h3>Dafne Keen</h3>
+                <p class="char-name">Laura / X-23</p>
+                <p class="desc">Logan's "daughter" returns from the Void to help the rebellion.</p>
+            </div>
+            <div class="cast-card">
+                <h3>Peggy</h3>
+                <p class="char-name">Dogpool</p>
+                <p class="desc">The ugliest dog in the world and Deadpool's new best friend.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-content" style="opacity: 1; transform: scale(1); filter: blur(0px);">
+            <p>NOW PLAYING</p>
+            <h1>DEADPOOL & WOLVERINE</h1>
+            <div class="footer-date">
+                <h2>IN THEATERS</h2>
+                <h2>EVERYWHERE</h2>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="scrip.js"></script>
+    <script>
+        window.addEventListener('load', function () {
+            gsap.to("nav", { y: 0, opacity: 1, duration: 1 });
+            gsap.to(".subpage-hero h1", { y: 0, opacity: 1, duration: 1, delay: 0.5 });
+            gsap.to(".cast-card", {
+                autoAlpha: 1,
+                y: 0,
+                duration: 0.8,
+                stagger: 0.15,
+                delay: 0.8,
+                from: { y: 50 }
+            });
+        });
+    </script>
+</body>
+
+</html>

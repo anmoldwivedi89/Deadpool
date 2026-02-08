@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Box Office - Deadpool & Wolverine</title>
+    <style>
+        .content-section {
+            padding: 100px 50px;
+            color: white;
+            font-family: var(--secondaryFont);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .stat-card {
+            background: rgba(26, 26, 26, 0.8);
+            border-bottom: 5px solid #ad1222;
+            padding: 50px;
+            text-align: center;
+            flex: 1;
+            min-width: 300px;
+            border-radius: 20px;
+            transition: 0.4s;
+            backdrop-filter: blur(10px);
+            visibility: hidden;
+            /* Initial state for GSAP */
+        }
+
+        .stat-card:hover {
+            background: #252525;
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 15px 40px rgba(173, 18, 34, 0.3);
+        }
+
+        .stat-card h2 {
+            font-family: var(--primaryFont);
+            font-size: 5rem;
+            color: #ad1222;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(173, 18, 34, 0.2);
+        }
+
+        .stat-card p {
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            opacity: 0.8;
+            font-weight: bold;
+        }
+
+        .subpage-hero {
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(to bottom, transparent, black);
+        }
+
+        .subpage-hero h1 {
+            font-family: var(--primaryFont);
+            font-size: 10vw;
+            color: white;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .subpage-hero .red-bg {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: #ad1222;
+            filter: blur(180px);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .records-list {
+            margin-top: 80px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .record-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-left: 4px solid #ad1222;
+            background: rgba(255, 255, 255, 0.05);
+            margin-bottom: 15px;
+            border-radius: 0 15px 15px 0;
+            transition: 0.3s;
+            visibility: hidden;
+            /* Initial state for GSAP */
+        }
+
+        .record-item:hover {
+            background: rgba(173, 18, 34, 0.1);
+            transform: translateX(10px);
+        }
+
+        .record-item i {
+            font-size: 2rem;
+            color: #ad1222;
+            margin-right: 30px;
+        }
+
+        .record-item span {
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav style="top: 0px; position: fixed;">
+        <div class="logo">
+            <a href="index.html"><img src="./images/logo.png" alt=""></a>
+        </div>
+        <ul>
+            <li><a href="top-casts.html">TOP CASTS</a></li>
+            <li><a href="production.html">PRODUCTION</a></li>
+            <li><a href="box-office.html" style="color: #ad1222;">BOX OFFICE</a></li>
+            <li><a href="imax-g.html">IMAX G</a></li>
+        </ul>
+        <div class="nav-icons">
+            <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
+            <i class="fa-regular fa-user" id="user-icon"></i>
+            <div class="hamgurber-menu" id="menu-btn">
+                <span class="1"></span>
+                <span class="2"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="overlay">
+        <div class="close-overlay" id="close-search">&times;</div>
+        <div class="search-container">
+            <input type="text" placeholder="Search Characters, News, Tours..." id="search-input">
+            <div class="search-line"></div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Menu Overlay -->
+    <div id="menu-overlay" class="overlay">
+        <div class="close-overlay" id="close-menu">&times;</div>
+        <ul class="overlay-menu-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="top-casts.html">TOP CASTS</a></li>
+            <li><a href="production.html">PRODUCTION</a></li>
+            <li><a href="box-office.html">BOX OFFICE</a></li>
+            <li><a href="imax-g.html">IMAX G</a></li>
+        </ul>
+    </div>
+
+    <!-- User Profile Placeholder -->
+    <div id="user-modal" class="modal">
+        <div class="modal-content">
+            <div class="close-modal" id="close-user">&times;</div>
+            <h2>Member Access</h2>
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <button class="btn">Login</button>
+        </div>
+    </div>
+
+    <div class="subpage-hero">
+        <div class="red-bg"></div>
+        <h1>Box Office</h1>
+    </div>
+
+    <div class="content-section">
+        <div class="stats-container">
+            <div class="stat-card">
+                <h2 class="counter">$1.33B</h2>
+                <p>Global Total</p>
+            </div>
+            <div class="stat-card">
+                <h2 class="counter">$636M</h2>
+                <p>Domestic (US)</p>
+            </div>
+            <div class="stat-card">
+                <h2 class="counter">94%</h2>
+                <p>Rotten Tomatoes</p>
+            </div>
+        </div>
+
+        <div class="records-list">
+            <div class="record-item">
+                <i class="fa-solid fa-trophy"></i>
+                <span>Highest-grossing R-rated film of all time.</span>
+            </div>
+            <div class="record-item">
+                <i class="fa-solid fa-fire"></i>
+                <span>Biggest opening weekend for an R-rated movie ($211M).</span>
+            </div>
+            <div class="record-item">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>7th highest-grossing MCU film globally.</span>
+            </div>
+            <div class="record-item">
+                <i class="fa-solid fa-star"></i>
+                <span>Winner of Multiple Audience Choice Awards.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-content" style="opacity: 1; transform: scale(1); filter: blur(0px);">
+            <p>A MULTIVERSE SUCCESS</p>
+            <h1>DEADPOOL & WOLVERINE</h1>
+            <div class="footer-date">
+                <h2>IN THEATERS</h2>
+                <h2>NOW STREAMING</h2>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="scrip.js"></script>
+    <script>
+        window.addEventListener('load', function () {
+            gsap.to("nav", { y: 0, opacity: 1, duration: 1 });
+            gsap.to(".subpage-hero h1", { y: 0, opacity: 1, duration: 1, delay: 0.5 });
+            gsap.to(".stat-card", {
+                autoAlpha: 1,
+                y: 0,
+                duration: 0.8,
+                stagger: 0.3,
+                delay: 0.8,
+                from: { y: 50 }
+            });
+            gsap.to(".record-item", {
+                autoAlpha: 1,
+                x: 0,
+                duration: 0.6,
+                stagger: 0.2,
+                delay: 1.2,
+                from: { x: -30 }
+            });
+        });
+    </script>
+</body>
+
+</html>
