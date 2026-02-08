@@ -16,9 +16,68 @@ function splitTextIntoSpans(selector) {
     });
 }
 
-// Navbar Functions
+// Navbar Animations & Logic
+gsap.to('nav', {
+    top: '0px',
+    duration: 1.2,
+    ease: "power3.out"
+});
+
 const searchIcon = document.querySelector('#search-icon');
-// ... (rest of navbar logic stays similar but integrated)
+const searchOverlay = document.querySelector('#search-overlay');
+const closeSearch = document.querySelector('#close-search');
+
+const userIcon = document.querySelector('#user-icon');
+const userModal = document.querySelector('#user-modal');
+const closeUser = document.querySelector('#close-user');
+
+const menuBtn = document.querySelector('#menu-btn');
+const menuOverlay = document.querySelector('#menu-overlay');
+const closeMenu = document.querySelector('#close-menu');
+
+// Search Toggle
+if (searchIcon) {
+    searchIcon.addEventListener('click', () => {
+        searchOverlay.classList.add('active');
+        document.querySelector('#search-input').focus();
+    });
+}
+if (closeSearch) {
+    closeSearch.addEventListener('click', () => {
+        searchOverlay.classList.remove('active');
+    });
+}
+
+// User Modal Toggle
+if (userIcon) {
+    userIcon.addEventListener('click', () => {
+        userModal.classList.add('active');
+    });
+}
+if (closeUser) {
+    closeUser.addEventListener('click', () => {
+        userModal.classList.remove('active');
+    });
+}
+
+// Menu Toggle
+if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+        menuOverlay.classList.add('active');
+    });
+}
+if (closeMenu) {
+    closeMenu.addEventListener('click', () => {
+        menuOverlay.classList.remove('active');
+    });
+}
+
+// Close on outside click
+window.addEventListener('click', (e) => {
+    if (e.target == userModal) userModal.classList.remove('active');
+    if (e.target == searchOverlay) searchOverlay.classList.remove('active');
+    if (e.target == menuOverlay) menuOverlay.classList.remove('active');
+});
 
 /* <=============================== Global Animations ======================================= > */
 
